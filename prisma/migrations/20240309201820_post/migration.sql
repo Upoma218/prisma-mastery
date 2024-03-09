@@ -1,5 +1,6 @@
+-- Active: 1709224115030@@127.0.0.1@5432@prisma_mastery
 -- CreateTable
-CREATE TABLE "Post" (
+CREATE TABLE "posts" (
     "id" SERIAL NOT NULL,
     "title" TEXT NOT NULL,
     "content" TEXT NOT NULL,
@@ -8,5 +9,5 @@ CREATE TABLE "Post" (
     "createAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "posts_pkey" PRIMARY KEY ("id")
 );
