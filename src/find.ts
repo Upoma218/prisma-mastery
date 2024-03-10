@@ -4,7 +4,13 @@ const prisma = new PrismaClient();
 
 const main = async () => {
   // find all
-  //   const getAllFromDB = await prisma.post.findMany();
+  const getAllFromDB = await prisma.post.findMany({
+    select: {
+      title: true,
+      content: true,
+    },
+  });
+  console.log(getAllFromDB);
 
   // find fast or find fast throw error
   //   const findFast = await prisma.post.findFirstOrThrow({
@@ -22,16 +28,16 @@ const main = async () => {
   //   console.log({ findUnique });
 
   //   find by select
-  const findBySelect = await prisma.post.findUniqueOrThrow({
-    where: {
-      id: 1,
-    },
-    select: {
-      title: true,
-      content: true,
-    },
-  });
-  console.log({ findBySelect });
+  //   const findBySelect = await prisma.post.findUniqueOrThrow({
+  //     where: {
+  //       id: 1,
+  //     },
+  //     select: {
+  //       title: true,
+  //       content: true,
+  //     },
+  //   });
+  //   console.log({ findBySelect });
 };
 
 main();
