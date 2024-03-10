@@ -19,33 +19,34 @@ const filtering = async () => {
   //   });
   //   console.log(andFiltering);
 
-  const orFiltering = await prisma.post.findMany({
+  //   const orFiltering = await prisma.post.findMany({
+  //     where: {
+  //       OR: [
+  //         {
+  //           title: {
+  //             contains: "title",
+  //           },
+  //         },
+  //         {
+  //           published: true,
+  //         },
+  //       ],
+  //     },
+  //   });
+  //   console.log(orFiltering);
+
+  const notFiltering = await prisma.post.findMany({
     where: {
-      OR: [
+      NOT: [
         {
           title: {
-            contains: "title",
+            contains: "this",
           },
-        },
-        {
-          published: true,
         },
       ],
     },
   });
-  console.log(orFiltering);
-
-  // const notFiltering = await prisma.post.findMany({
-  //     where: {
-  //         NOT: [
-  //             {
-  //                 title: {
-  //                     contains: "this"
-  //                 }
-  //             }
-  //         ]
-  //     }
-  // });
+  console.log(notFiltering);
 
   // const startsWith = await prisma.user.findMany({
   //     where: {
