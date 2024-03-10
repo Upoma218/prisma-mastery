@@ -21,6 +21,8 @@ const paginationSorting = async () => {
   //   console.log("cursorBasedPagination", cursorBasedPagination);
 
   const sortedData = await prisma.post.findMany({
+    skip: 1,
+    take: 1,
     orderBy: {
       id: "desc",
     },
