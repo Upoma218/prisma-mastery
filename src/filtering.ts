@@ -75,35 +75,35 @@ const filtering = async () => {
   //   });
   //   console.log(equals);
 
-  const userNameArray = ["user1", "user2"];
+  //   const userNameArray = ["user1", "user2"];
 
-  const userNamesByArray = await prisma.user.findMany({
+  //   const userNamesByArray = await prisma.user.findMany({
+  //     where: {
+  //       username: {
+  //         in: userNameArray,
+  //       },
+  //     },
+  //   });
+  //   console.log(userNamesByArray);
+
+  const inDepthData = await prisma.user.findUnique({
     where: {
-      username: {
-        in: userNameArray,
+      id: 1,
+    },
+    include: {
+      post: {
+        include: {
+          postCategory: {
+            include: {
+              category: true,
+            },
+          },
+        },
       },
     },
   });
-  console.log(userNamesByArray);
 
-  // const inDepthData = await prisma.user.findUnique({
-  //     where: {
-  //         id: 3
-  //     },
-  //     include: {
-  //         post: {
-  //             include: {
-  //                 postCategory: {
-  //                     include: {
-  //                         category: true
-  //                     }
-  //                 }
-  //             }
-  //         }
-  //     }
-  // })
-
-  // console.dir(inDepthData, { depth: Infinity })
+  console.dir(inDepthData, { depth: Infinity });
 };
 
 filtering();
