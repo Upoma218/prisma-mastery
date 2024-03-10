@@ -13,13 +13,17 @@ const prisma = new PrismaClient();
 
 // deleteSingleData();
 
-const deleteMany = async () => {
-  const result = await prisma.post.deleteMany({
-    where: {
-      title: "this is Title 2",
-    },
-  });
-  console.log(result);
+// const deleteMany = async () => {
+//   const result = await prisma.post.deleteMany({
+//     where: {
+//       title: "this is Title 2",
+//     },
+//   });
+//   console.log(result);
+// };
+const deleteAll = async () => {
+  const deleteAllData = await prisma.post.deleteMany({});
+  console.log({ deleteAllData });
 };
 
-deleteMany();
+deleteAll();
