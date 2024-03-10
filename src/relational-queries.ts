@@ -11,14 +11,16 @@ const relationalQueries = async () => {
   //     post: true,
   //   },
   // });
+
   // fluent api
-  const result = await prisma.user
-    .findUnique({
-      where: {
-        id: 1,
-      },
-    })
-    .post();
+  //   const result = await prisma.user
+  //     .findUnique({
+  //       where: {
+  //         id: 1,
+  //       },
+  //     })
+  //     .profile();
+  // console.log(result);
 
   // const result = await prisma.user.findUnique({
   //     where: {
@@ -27,17 +29,16 @@ const relationalQueries = async () => {
   // }).profile();
 
   // relational fillters
-  // const publishedPostUsers = await prisma.user.findMany({
-  //     include: {
-  //         post: {
-  //             where: {
-  //                 published: true
-  //             }
-  //         }
-  //     }
-  // })
-  // console.dir(publishedPostUsers, { depth: Infinity })
-  console.log(result);
+  const publishedPostUsers = await prisma.user.findMany({
+    include: {
+      post: {
+        where: {
+          published: true,
+        },
+      },
+    },
+  });
+  console.dir(publishedPostUsers, { depth: Infinity });
 };
 
 relationalQueries();
