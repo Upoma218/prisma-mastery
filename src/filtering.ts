@@ -35,26 +35,27 @@ const filtering = async () => {
   //   });
   //   console.log(orFiltering);
 
-  const notFiltering = await prisma.post.findMany({
+  //   const notFiltering = await prisma.post.findMany({
+  //     where: {
+  //       NOT: [
+  //         {
+  //           title: {
+  //             contains: "this",
+  //           },
+  //         },
+  //       ],
+  //     },
+  //   });
+  //   console.log(notFiltering);
+
+  const startsWith = await prisma.user.findMany({
     where: {
-      NOT: [
-        {
-          title: {
-            contains: "this",
-          },
-        },
-      ],
+      email: {
+        startsWith: "i", // endsWith, contains, equals
+      },
     },
   });
-  console.log(notFiltering);
-
-  // const startsWith = await prisma.user.findMany({
-  //     where: {
-  //         email: {
-  //             startsWith: 'user1@ph.com' // endsWith, contains, equals
-  //         }
-  //     }
-  // });
+  console.log(startsWith);
 
   // const userNameArray = ['user1', 'user2', 'user5'];
 
