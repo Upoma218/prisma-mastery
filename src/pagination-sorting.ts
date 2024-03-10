@@ -22,7 +22,10 @@ const paginationSorting = async () => {
 
   const sortedData = await prisma.post.findMany({
     orderBy: {
-      id: "asc",
+      id: "desc",
+    },
+    where: {
+      published: true,
     },
   });
   console.log("sortedData desc", sortedData);
