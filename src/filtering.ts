@@ -48,14 +48,22 @@ const filtering = async () => {
   //   });
   //   console.log(notFiltering);
 
-  const startsWith = await prisma.user.findMany({
+  //   const startsWith = await prisma.user.findMany({
+  //     where: {
+  //       email: {
+  //         startsWith: "i", // endsWith, contains, equals
+  //       },
+  //     },
+  //   });
+  //   console.log(startsWith);
+  const endsWith = await prisma.user.findMany({
     where: {
       email: {
-        startsWith: "i", // endsWith, contains, equals
+        endsWith: "ph.com", // endsWith, contains, equals
       },
     },
   });
-  console.log(startsWith);
+  console.log(endsWith);
 
   // const userNameArray = ['user1', 'user2', 'user5'];
 
