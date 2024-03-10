@@ -14,7 +14,7 @@ const main = async () => {
   });
 
   // find unique or find fast throw unique
-  const findUnique = await prisma.post.findUnique({
+  const findUnique = await prisma.post.findUniqueOrThrow({
     where: {
       id: 2,
     },
