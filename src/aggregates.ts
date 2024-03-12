@@ -11,11 +11,11 @@ const aggregates = async () => {
   });
 
   // find sum of age
-  // const sumAge = await prisma.user.aggregate({
-  //     _sum: {
-  //         age: true
-  //     }
-  // });
+  const sumAge = await prisma.user.aggregate({
+    _sum: {
+      age: true,
+    },
+  });
 
   // find count of age fields
   // const countAge = await prisma.post.aggregate({
@@ -44,7 +44,7 @@ const aggregates = async () => {
   //     }
   // });
 
-  console.log(avgAge);
+  console.log(sumAge);
 };
 
 aggregates();
