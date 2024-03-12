@@ -18,14 +18,14 @@ const aggregates = async () => {
   });
 
   // find count of age fields
-  // const countAge = await prisma.post.aggregate({
-  //     _count: {
-  //         title: true
-  //     },
-  //     where: {
-  //         published: true
-  //     }
-  // });
+  const countAge = await prisma.post.aggregate({
+    _count: {
+      title: true,
+    },
+    where: {
+      published: true,
+    },
+  });
 
   // find number of records
   // const countData = await prisma.user.count()
@@ -44,7 +44,7 @@ const aggregates = async () => {
   //     }
   // });
 
-  console.log(sumAge);
+  console.log(countAge);
 };
 
 aggregates();
