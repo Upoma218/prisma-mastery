@@ -38,13 +38,13 @@ const aggregates = async () => {
   });
 
   // find min age
-  // const minAge = await prisma.user.aggregate({
-  //     _min: {
-  //         age: true
-  //     }
-  // });
+  const minAge = await prisma.user.aggregate({
+    _min: {
+      age: true,
+    },
+  });
 
-  console.log(maxAge);
+  console.log(minAge);
 };
 
 aggregates();
